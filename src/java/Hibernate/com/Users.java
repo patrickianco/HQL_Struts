@@ -57,4 +57,8 @@ public class Users implements Serializable{
     public void setRole(String role){
         this.role = role;
     }
+    
+    public Long getId(){
+        return user_id;
+    }
 }

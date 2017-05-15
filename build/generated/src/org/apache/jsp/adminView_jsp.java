@@ -67,20 +67,21 @@ public final class adminView_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\">\n");
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
- 
-            
+
+
             Configuration configuration = new Configuration();
             configuration.configure();
-            ServiceRegistry serviceRegistry = 
-                    new StandardServiceRegistryBuilder().applySettings(
+            ServiceRegistry serviceRegistry
+                    = new StandardServiceRegistryBuilder().applySettings(
                             configuration.getProperties()).build();
             SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
-            
+
             Session s = factory.openSession();
             /*String hql = "from Users";
             List<Users> results = (List<Users>) s.createQuery(hql).list();
@@ -94,14 +95,51 @@ public final class adminView_jsp extends org.apache.jasper.runtime.HttpJspBase
                 out.print(pass);
                 out.print(role);
             }*/
-            String hqlU = "select u.username from Users u";
-            List<Users> resultsU = (List<Users>) s.createQuery(hqlU).list();
-            
-            for(Users u : resultsU){
-                String uname = u.getUsername();
-            }
+           // String hqlU = "from Users";
+           // List<Users> resultsU = (List<Users>) s.createQuery(hqlU).list();
+           List results = s.createQuery("FROM Users").list();
         
       out.write("\n");
+      out.write("        <table>\n");
+      out.write("            <thead>\n");
+      out.write("                <tr>\n");
+      out.write("                    <th>USERNAME</th>\n");
+      out.write("                    <th>PASSWORD</th>\n");
+      out.write("                    <th>ROLE</th>\n");
+      out.write("                    <th>ACTIONS</th>\n");
+      out.write("                </tr>\n");
+      out.write("            </thead>\n");
+      out.write("            <tbody>\n");
+      out.write("\n");
+      out.write("                 <tr>\n");
+      out.write("                ");
+
+                   /*  for(Users result: resultsU){
+                String uname = result.getUsername();
+                String pass = result.getPassword();
+                String role = result.getRole();
+                */
+                   for(Iterator it = results.iterator(); it.hasNext();){
+                       Users user = (Users) it.next();
+                
+                
+      out.write(" \n");
+      out.write("               \n");
+      out.write("                    <td>");
+ out.println(user.getUsername()); 
+      out.write("</td>\n");
+      out.write("                    <td>");
+ out.println(user.getPassword()); 
+      out.write("</td>\n");
+      out.write("                    <td>");
+ out.println(user.getRole());
+      out.write("</td>\n");
+      out.write("                ");
+}
+      out.write("\n");
+      out.write("                </tr>\n");
+      out.write("            </tbody>\n");
+      out.write("        </table>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

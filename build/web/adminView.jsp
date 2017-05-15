@@ -45,8 +45,9 @@
                 out.print(pass);
                 out.print(role);
             }*/
-            String hqlU = "from Users";
-            List<Users> resultsU = (List<Users>) s.createQuery(hqlU).list();
+           // String hqlU = "from Users";
+           // List<Users> resultsU = (List<Users>) s.createQuery(hqlU).list();
+           List results = s.createQuery("FROM Users").list();
         %>
         <table>
             <thead>
@@ -58,22 +59,20 @@
                 </tr>
             </thead>
             <tbody>
-
-                 <tr>
                 <%
-                     for(Users result: resultsU){
-                String uname = result.getUsername();
-                String pass = result.getPassword();
-                String role = result.getRole();
-                
-                
+                for(Iterator it = results.iterator(); it.hasNext();){
+                       Users user = (Users) it.next();
                 %> 
+                 <tr>
+            <form action="adminEdit.jsp" method="POST">
                
-                    <td><% out.print(uname); %></td>
-                
-                        
+                    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getUsername());%>"/></td>
+                    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getPassword());%>"/></td>
+                    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getRole());%>"/></td>
+                    <td><input type="checkbox" name="checkbox" value="<%out.println(user.getId());%>"> | <input type="submit" name="button" value="Edit" /></td>
+            </form>
                 <%}%>
-</tr>
+                </tr>
             </tbody>
         </table>
     </body>
