@@ -56,6 +56,14 @@
         <servlet-name>UserDelete</servlet-name>
         <servlet-class>Controller.UserDelete</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TvDelete</servlet-name>
+        <servlet-class>Controller.TvDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditTvServlet</servlet-name>
+        <servlet-class>Connector.EditTvServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>UserDelete</servlet-name>
         <url-pattern>/UserDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TvDelete</servlet-name>
+        <url-pattern>/TvDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditTvServlet</servlet-name>
+        <url-pattern>/EditTvServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

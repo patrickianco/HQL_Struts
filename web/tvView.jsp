@@ -49,7 +49,7 @@
                        Shows show = (Shows) it.next();
                 %> 
                  <tr>
-        <form action="EditServlet" method="POST">
+        <form action="EditTvServlet" method="POST">
                
                     <td><input  type="text" readonly="" name="" value ="<%out.print(show.getTitle());%>"/></td>
                     <td><input  type="text" readonly="" name="" value ="<%out.print(show.getYear());%>"/></td>
