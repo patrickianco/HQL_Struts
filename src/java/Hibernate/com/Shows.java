@@ -32,6 +32,10 @@ public class Shows implements Serializable{
         this.tv_season = tv_season;
     }
     
+    public Long getId(){
+        return tv_id;
+    }
+    
     public String getTitle(){
         return title;
     }

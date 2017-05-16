@@ -33,20 +33,6 @@
             SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
 
             Session s = factory.openSession();
-            /*String hql = "from Users";
-            List<Users> results = (List<Users>) s.createQuery(hql).list();
-    
-            for(Users result: results){
-                String uname = result.getUsername();
-                String pass = result.getPassword();
-                String role = result.getRole();
-                
-                out.print(uname);
-                out.print(pass);
-                out.print(role);
-            }*/
-           // String hqlU = "from Users";
-           // List<Users> resultsU = (List<Users>) s.createQuery(hqlU).list();
            List results = s.createQuery("FROM Users").list();
         %>
         <table>
@@ -64,16 +50,18 @@
                        Users user = (Users) it.next();
                 %> 
                  <tr>
-            <form action="adminEdit.jsp" method="POST">
+        <form action="EditServlet" method="POST">
                
                     <td><input  type="text" readonly="" name="" value ="<%out.print(user.getUsername());%>"/></td>
                     <td><input  type="text" readonly="" name="" value ="<%out.print(user.getPassword());%>"/></td>
                     <td><input  type="text" readonly="" name="" value ="<%out.print(user.getRole());%>"/></td>
                     <td><input type="checkbox" name="checkbox" value="<%out.println(user.getId());%>"> | <input type="submit" name="button" value="Edit" /></td>
-            </form>
+            
                 <%}%>
                 </tr>
             </tbody>
         </table>
+                <input type="submit" value="Delete" name="button" />
+        </form>
     </body>
 </html>
