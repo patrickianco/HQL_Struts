@@ -8,22 +8,6 @@
         <param-name>adminPass</param-name>
         <param-value>admin</param-value>
     </context-param>
-    <context-param>
-        <param-name>add</param-name>
-        <param-value>admin</param-value>
-    </context-param>
-    <context-param>
-        <param-name>pass</param-name>
-        <param-value>pass</param-value>
-    </context-param>
-    <context-param>
-        <param-name>user</param-name>
-        <param-value>user</param-value>
-    </context-param>
-    <context-param>
-        <param-name>userpass</param-name>
-        <param-value>userpass</param-value>
-    </context-param>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Connector.LoginServlet</servlet-class>
