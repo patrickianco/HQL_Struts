@@ -32,7 +32,8 @@
 	<style>
 	    body{
                 margin-top: 30px;
-                background-color: black;	}
+                background-color: black;
+	    }
             * {box-sizing:border-box}
 
 	    .goBack{ float: right; }
