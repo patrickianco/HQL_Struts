@@ -95,6 +95,10 @@
 			<div class="row">
 			    <div class="col-md-12 text-center"><input type="submit" value="Delete" name="button" class="btn btn-danger"/></div>
 			</div>
-		    </div>        </form>
-		    </body>
-		    </html>
+		    </div>        
+		    </form>
+		</div>
+	    </div>
+	</div>
+    </body>
+</html>
