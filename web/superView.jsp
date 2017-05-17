@@ -41,15 +41,15 @@
     <body>
         <%
 
-            Configuration configuration = new Configuration();
-            configuration.configure();
-            ServiceRegistry serviceRegistry
-                    = new StandardServiceRegistryBuilder().applySettings(
-                            configuration.getProperties()).build();
-            SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
+	    Configuration configuration = new Configuration();
+	    configuration.configure();
+	    ServiceRegistry serviceRegistry
+		    = new StandardServiceRegistryBuilder().applySettings(
+			    configuration.getProperties()).build();
+	    SessionFactory factory = configuration.buildSessionFactory(serviceRegistry);
 
-            Session s = factory.openSession();
-           List results = s.createQuery("FROM Users").list();
+	    Session s = factory.openSession();
+	    List results = s.createQuery("FROM Users").list();
         %>
 	<img class="img-responsive mx-auto d-block" src="assets/img/flogo.png" style="width:25%">
 	<div class="container">
@@ -60,7 +60,7 @@
                         <div class="col-md-1 text-center "><button class="btn btn-danger goBack" onclick="location.href = 'adminHome.jsp'">Go back</button></div>
 		    </div>
 		</div>
-        <div class="card-block">
+		<div class="card-block">
 		    <div class="table-responsive">
 			<table class="table table-condensed table-bordered text-center table-striped col-md-12">
 			    <thead>
@@ -68,20 +68,24 @@
 				    <th class="text-center active">USERNAME</th>
 				    <th class="text-center">PASSWORD</th>
 				    <th class="text-center">ROLE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                for(Iterator it = results.iterator(); it.hasNext();){
-                       Users user = (Users) it.next();
-                %> 
-                 <tr>
-                    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getUsername());%>"/></td>
-                    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getPassword());%>"/></td>
-                    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getRole());%>"/></td> 
-                <%}%>
-                </tr>
-            </tbody>
-        </table>
+				</tr>
+			    </thead>
+			    <tbody>
+				<%
+				    for (Iterator it = results.iterator(); it.hasNext();) {
+					Users user = (Users) it.next();
+				%> 
+				<tr>
+				    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getUsername());%>"/></td>
+				    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getPassword());%>"/></td>
+				    <td><input  type="text" readonly="" name="" value ="<%out.print(user.getRole());%>"/></td> 
+					<%}%>
+				</tr>
+			    </tbody>
+			</table>
+		    </div>
+		</div>
+	    </div>
+	</div>
     </body>
 </html>
